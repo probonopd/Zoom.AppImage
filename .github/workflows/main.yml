@@ -20,6 +20,7 @@ jobs:
            wget "https://raw.githubusercontent.com/AppImage/pkg2appimage/master/pkg2appimage"
            bash -ex pkg2appimage Zoom
     - name: Upload to GitHub Releases
-      uses: actions/upload-artifact@v1.0.0
+      uses: actions/upload-artifact@v2
       with:
-        path: 'out'
+        name: Artifacts
+        path: out/*.AppImage*

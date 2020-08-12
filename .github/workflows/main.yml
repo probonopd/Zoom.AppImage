@@ -11,7 +11,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  AppImage:
     runs-on: ubuntu-16.04
     steps:
     - name: Create AppImage
@@ -19,8 +19,26 @@ jobs:
            sudo apt-get -y install desktop-file-utils
            wget "https://raw.githubusercontent.com/AppImage/pkg2appimage/master/pkg2appimage"
            bash -ex pkg2appimage Zoom
-    - name: Upload to GitHub Releases
+    - name: Upload to GitHub Artifacts
       uses: actions/upload-artifact@v2
       with:
         name: Artifacts
         path: out/*.AppImage*
+
+  Release:
+    needs: [AppImage]
+    runs-on: ubuntu-16.04
+    steps:
+    - uses: actions/download-artifact@v1
+      with:
+        name: Download from Upload to GitHub Artifacts
+    - name: Release
+      uses: marvinpinto/action-automatic-releases@latest
+      with:
+        title: AppImage
+        automatic_release_tag: stable
+        prerelease: false
+        draft: false
+        files: |
+          Zoom*.AppImage*
+        repo_token: ${{ secrets.GITHUB_TOKEN }}

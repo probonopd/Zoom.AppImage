@@ -18,8 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+           echo Add other actions to build,
+           echo test, and deploy your project.
 
 - cron: "0 12 * * 0"
   displayName: Weekly Sunday build

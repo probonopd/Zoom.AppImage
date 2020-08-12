@@ -25,5 +25,5 @@ jobs:
         prerelease: false
         draft: false
         files: |
-          Zoom*.AppImage*
+          out/*.AppImage*
         repo_token: ${{ secrets.GITHUB_TOKEN }}

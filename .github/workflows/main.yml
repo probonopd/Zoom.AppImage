@@ -19,12 +19,8 @@ jobs:
     steps:
     - name: Build
       run: |
-           echo Add other actions to build,
-           echo test, and deploy your project.
-
-- cron: "0 12 * * 0"
-  displayName: Weekly Sunday build
-  branches:
-    include:
-    - master
-  always: true
+           echo "Add other actions to build,"
+           echo "test, and deploy your project."
+      on:
+        schedule:
+          - cron: "0 12 * * 0"

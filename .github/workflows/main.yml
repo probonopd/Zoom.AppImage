@@ -16,6 +16,7 @@ jobs:
     steps:
     - name: Create AppImage
       run: |
+           sudo apt-get -y install desktop-file-tools
            wget "https://raw.githubusercontent.com/AppImage/pkg2appimage/master/pkg2appimage"
            bash -ex pkg2appimage Zoom
     - name: Upload to GitHub Releases

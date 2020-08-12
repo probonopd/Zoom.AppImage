@@ -9,7 +9,9 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
+  schedule:
+    - cron: "0 12 * * 0"
+      
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -21,6 +23,3 @@ jobs:
       run: |
            echo "Add other actions to build,"
            echo "test, and deploy your project."
-      on:
-        schedule:
-          - cron: "0 12 * * 0"

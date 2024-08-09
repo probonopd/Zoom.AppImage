@@ -7,6 +7,7 @@ on:
     branches: [ master ]
   schedule:
     - cron: "0 12 * * 0"
+  workflow_dispatch:
       
 jobs:
   AppImage:
